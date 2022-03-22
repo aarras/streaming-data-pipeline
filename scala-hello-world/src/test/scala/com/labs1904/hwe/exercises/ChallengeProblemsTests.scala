@@ -40,6 +40,7 @@ class ChallengeProblemsTests extends FunSpec{
 //      assert(expected === actual)
 //    }
 //  }
+//
 //  describe("Challenge Five") {
 //    it("Uses .map to uppercase everything") {
 //      val input = List("Scala", "is", "dope")
@@ -48,6 +49,7 @@ class ChallengeProblemsTests extends FunSpec{
 //      assert(expected === actual)
 //    }
 //  }
+//
 //  describe("Challenge Six") {
 //    it("Checks if filtered out values are correct") {
 //      val input = List(0,-3,13,25)
@@ -55,6 +57,7 @@ class ChallengeProblemsTests extends FunSpec{
 //      val actual = ChallengeProblems.filterNegatives(input)
 //      assert(expected === actual)
 //    }
+//
 //    it("Checks if all negatives, then should be an empty list") {
 //      val input = List(-3,-5,-6)
 //      val expected = List()
@@ -62,6 +65,7 @@ class ChallengeProblemsTests extends FunSpec{
 //      assert(expected === actual)
 //    }
 //  }
+//
 //  describe("Challenge Seven") {
 //    it("Checks if words with car in it are kept") {
 //      val input = List("racecar", "cardinal", "dancer")
@@ -70,6 +74,7 @@ class ChallengeProblemsTests extends FunSpec{
 //      assert(expected === actual)
 //    }
 //  }
+//
 //  describe("Challenge Eight") {
 //    it("Checks if sum of all ints is correct") {
 //      val input = List(0,23,4,-1,8)
@@ -78,6 +83,7 @@ class ChallengeProblemsTests extends FunSpec{
 //      assert(expected === actual)
 //    }
 //  }
+//
 //  describe("Challenge Nine") {
 //    it("Returns cat age from human age when passed an int") {
 //      val input = 3
@@ -86,23 +92,24 @@ class ChallengeProblemsTests extends FunSpec{
 //      assert(expected === actual)
 //    }
 //  }
-//  describe("Challenge 10") {
-//    it("Returns the cat age from a human age when passed a Some") {
-//      val input: Option[Int] = Some(4)
-//      val expected: Option[Int] = Some(16)
 //
-//      val actual = ChallengeProblems.catsAgeOption(input)
-//      assert(expected === actual)
-//    }
-//
-//    it("Returns a None when passed a None") {
-//      val input: Option[Int] = None
-//      val expected: Option[Int] = None
-//
-//      val actual = ChallengeProblems.catsAgeOption(input)
-//      assert(expected === actual)
-//    }
-//  }
+  describe("Challenge 10") {
+    it("Returns the cat age from a human age when passed a Some") {
+      val input: Option[Int] = Some(4)
+      val expected: Option[Int] = Some(16)
+
+      val actual = ChallengeProblems.catsAgeOption(input)
+      assert(expected === actual)
+    }
+
+    it("Returns a None when passed a None") {
+      val input: Option[Int] = None
+      val expected: Option[Int] = None
+
+      val actual = ChallengeProblems.catsAgeOption(input)
+      assert(expected === actual)
+    }
+  }
 //
 //  describe("Challenge Eleven") {
 //    it("Checks if minimum value in list is returned") {
