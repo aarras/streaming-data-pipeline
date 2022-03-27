@@ -1,6 +1,10 @@
 package com.labs1904.hwe.exercises
 
+import jdk.nashorn.internal.objects.NativeArray.some
 import jdk.nashorn.internal.objects.NativeString.toUpperCase
+
+import scala.math.Ordering.Implicits
+import scala.tools.scalap.scalax.rules.scalasig.ClassFileParser.none
 
 
 object ChallengeProblems {
@@ -83,26 +87,33 @@ object ChallengeProblems {
     -Params - Option[Int]
     -Returns - Option[Int]
  */
+  def catsAgeOption(x: Option[Int]): Option[Int] = {
+    try {
+      x => x*4
+    } catch {
+      case e: Exception => None
+    }
+  }
 
   /*
   11. Write a function that takes in a list of ints, and return the minimum of the ints provided
   Params - List
   Returns - Int
    */
+  def minimum(x: List[Int]): Int = {
+    x.sorted.head
+  }
 
   /*
   12. Same as question 11, but this time you are given a list of Option[Ints], returns the minimum of the Ints provided.
   If no ints are provided, return None.
  */
-
-
-
-
-
-
-
-
-
-
+    def minimumOption(age: List[Option[Int]]): Option[Int] = {
+      try {
+        age.sorted.head
+      } catch {
+        case e: Exception => None
+      }
+    }
 
 }
