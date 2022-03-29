@@ -87,12 +87,9 @@ object ChallengeProblems {
     -Params - Option[Int]
     -Returns - Option[Int]
  */
-  def catsAgeOption(x: Option[Int]): Option[Int] = {
-    try {
-      x => x*4
-    } catch {
-      case e: Exception => None
-    }
+  def catsAgeOption(x: Option[Int]): Option[Int] = x match {
+    case Some(x) => Some(x*4)
+    case None => None
   }
 
   /*
