@@ -13,12 +13,13 @@ case class User(name: String, username: String, email: String)
 
 object ProducerWithFaker {
   implicit val formats: DefaultFormats.type = DefaultFormats
-  val BootstrapServer : String = "CHANGEME"
-  val Topic: String = "CHANGEME"
-  val username: String = "CHANGEME"
-  val password: String = "CHANGEME"
-  //Use this for Windows
+  val BootstrapServer : String = "b-2-public.hwe-kafka-cluster.l384po.c8.kafka.us-west-2.amazonaws.com:9196,b-1-public.hwe-kafka-cluster.l384po.c8.kafka.us-west-2.amazonaws.com:9196,b-3-public.hwe-kafka-cluster.l384po.c8.kafka.us-west-2.amazonaws.com:9196"
+  val username: String = "hwe"
+  val password: String = "1904labs"
   val trustStore: String = "src\\main\\resources\\kafka.client.truststore.jks"
+
+  val Topic: String = "hwe-kafka-connection-test"
+
   //Use this for Mac
   //val trustStore: String = "src/main/resources/kafka.client.truststore.jks"
 

@@ -1,5 +1,6 @@
 package com.labs1904.hwe.consumers
 
+import com.labs1904.hwe.util.Util
 import com.labs1904.hwe.util.Util.getScramAuthString
 import net.liftweb.json.DefaultFormats
 import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord, ConsumerRecords, KafkaConsumer}
@@ -9,16 +10,17 @@ import java.time.Duration
 import java.util.{Arrays, Properties, UUID}
 
 object SimpleConsumer {
-  val BootstrapServer : String = "CHANGEME"
-  val Topic: String = "question-1"
-  val username: String = "CHANGEME"
-  val password: String = "CHANGEME"
-  //Use this for Windows
+  val BootstrapServer : String = "b-2-public.hwe-kafka-cluster.l384po.c8.kafka.us-west-2.amazonaws.com:9196,b-1-public.hwe-kafka-cluster.l384po.c8.kafka.us-west-2.amazonaws.com:9196,b-3-public.hwe-kafka-cluster.l384po.c8.kafka.us-west-2.amazonaws.com:9196"
+  val username: String = "hwe"
+  val password: String = "1904labs"
   val trustStore: String = "src\\main\\resources\\kafka.client.truststore.jks"
-  //Use this for Mac
-  //val trustStore: String = "src/main/resources/kafka.client.truststore.jks"
+
+  val Topic: String = "question-1-output"
 
   implicit val formats: DefaultFormats.type = DefaultFormats
+
+  case class RawUser(id: Int, name: String, email: String)
+  case class EnrichedUser(id: Int, name: String, email: String, numberAsWord: String, hweDeveloper: String)
 
   def main(args: Array[String]): Unit = {
 
@@ -39,6 +41,21 @@ object SimpleConsumer {
       records.forEach((record: ConsumerRecord[String, String]) => {
         // Retrieve the message from each record
         val message = record.value()
+//        val user = message.split(",").map(_.trim)
+//        val id = user(0).toInt
+//        val name = user(1)
+//        val email = user(2)
+//        val dev = "Adam Arras"
+
+        //val rawUser = RawUser(id, name, email)
+        //println(s"Raw User: " + rawUser)
+
+        //val enrichedUser = EnrichedUser(id, name, email, Util.mapNumberToWord(id),dev)
+        //println(s"Enriched: " + enrichedUser)
+
+        //val enrichedUserString = enrichedUser.toString.replace("EnrichedUser(","").replace(")","")
+        //println(enrichedUserString)
+
         println(s"Message Received: $message")
       })
     }
