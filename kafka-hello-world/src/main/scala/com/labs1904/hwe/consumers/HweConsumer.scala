@@ -12,19 +12,25 @@ import java.time.Duration
 import java.util.{Arrays, Properties, UUID}
 
 object HweConsumer {
+<<<<<<< HEAD
   val BootstrapServer : String = "CHANGE ME"
   val username: String = "CHANGE ME"
   val password: String = "CHANGE ME"
   val trustStore: String = "src\\main\\resources\\kafka.client.truststore.jks"
 
+=======
+  val BootstrapServer : String = "CHANGEME"
+>>>>>>> parent of 70fd7be... Finished week 3 lab
   val consumerTopic: String = "question-1"
   val producerTopic: String = "question-1-output"
-  val Topic: String = "hwe-kafka-connection-test"
+  val username: String = "CHANGEME"
+  val password: String = "CHANGEME"
+  //Use this for Windows
+  val trustStore: String = "src\\main\\resources\\kafka.client.truststore.jks"
+  //Use this for Mac
+  //val trustStore: String = "src/main/resources/kafka.client.truststore.jks"
 
   implicit val formats: DefaultFormats.type = DefaultFormats
-
-  case class RawUser(id: Int, name: String, email: String)
-  case class EnrichedUser(id: Int, name: String, email: String, numberAsWord: String, hweDeveloper: String)
 
   def main(args: Array[String]): Unit = {
 
@@ -49,24 +55,10 @@ object HweConsumer {
       records.forEach((record: ConsumerRecord[String, String]) => {
         // Retrieve the message from each record
         val message = record.value()
-        //println(s"Message Received: $message")
+        println(s"Message Received: $message")
         // TODO: Add business logic here!
-        val user = message.split(",").map(_.trim)
-        val id = user(0).toInt
-        val name = user(1)
-        val email = user(2)
-        val dev = "Adam Arras"
-        val enrichedUser = EnrichedUser(id, name, email, Util.mapNumberToWord(id),dev)
-        val enrichedUserString = enrichedUser.toString.replace("EnrichedUser(","").replace(")","")
-
-        val newRecord = new ProducerRecord[String, String](producerTopic, enrichedUserString)
-        println(newRecord)
-        producer.send(newRecord)
-
 
       })
-
     }
-    producer.close()
   }
 }

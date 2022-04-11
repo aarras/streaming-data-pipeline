@@ -11,13 +11,18 @@ import java.util.{Properties, UUID}
 
 object JSONConsumer {
 
+<<<<<<< HEAD
   val BootstrapServer : String = "CHANGE ME"
   val username: String = "CHANGE ME"
   val password: String = "CHANGE ME"
+=======
+  val BootstrapServer : String = "CHANGEME"
+  val Topic: String = "CHANGEME"
+  val username: String = "CHANGEME"
+  val password: String = "CHANGEME"
+  //Use this for Windows
+>>>>>>> parent of 70fd7be... Finished week 3 lab
   val trustStore: String = "src\\main\\resources\\kafka.client.truststore.jks"
-
-  val Topic: String = "hwe-kafka-connection-test"
-
   //Use this for Mac
   //val trustStore: String = "src/main/resources/kafka.client.truststore.jks"
 
