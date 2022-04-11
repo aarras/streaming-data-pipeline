@@ -12,9 +12,9 @@ import java.time.Duration
 import java.util.{Arrays, Properties, UUID}
 
 object HweConsumer {
-  val BootstrapServer : String = "b-2-public.hwe-kafka-cluster.l384po.c8.kafka.us-west-2.amazonaws.com:9196,b-1-public.hwe-kafka-cluster.l384po.c8.kafka.us-west-2.amazonaws.com:9196,b-3-public.hwe-kafka-cluster.l384po.c8.kafka.us-west-2.amazonaws.com:9196"
-  val username: String = "hwe"
-  val password: String = "1904labs"
+  val BootstrapServer : String = "CHANGE ME"
+  val username: String = "CHANGE ME"
+  val password: String = "CHANGE ME"
   val trustStore: String = "src\\main\\resources\\kafka.client.truststore.jks"
 
   val consumerTopic: String = "question-1"
